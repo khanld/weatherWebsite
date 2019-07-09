@@ -3,6 +3,7 @@ const path = require('path');
 const hbs = require('hbs');
 const fetchAPI = require('./API/fetchAPI');
 const weather = require('./API/fetchWeather');
+const port = process.env.PORT || 3000;
 
 //Define paths for express config
 const app = express();
@@ -81,7 +82,7 @@ app.get('/*', (req,res)=>{
 });
 
 
-app.listen(3000, ()=>{
-	console.log("Your websever is now available at port 3000");
+app.listen(port, ()=>{
+	console.log("Your websever is now available");
 })
 

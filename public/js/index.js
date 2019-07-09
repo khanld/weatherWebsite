@@ -7,7 +7,7 @@ const div1 = document.querySelector('#div1');
 const div2 = document.querySelector('#div2');
 
 const fetchAPI = ()=>{
-	return fetch(`http://localhost:3000/weather?address=${input.value}`)
+	return fetch(`/weather?address=${input.value}`)
 			.then((response)=>{
 				return response.json();
 			})
