@@ -21,7 +21,7 @@ hbs.registerPartials(partialsPath);
 app.get('/', (req, res)=>{
 	res.render('index', {
 		name: "Duy Khanh",
-		title: "Weather app"
+		title: "Weather Forecast"
 	});
 
 });
@@ -33,15 +33,16 @@ app.get('/weather', (req, res)=>{
 		})
 	};
 	fetchAPI.location(req.query.address)
-	.then(({name, coord})=>{
-		return weather.weatherInform(coord.lat, coord.lon);
+	.then(({name, lat,lon})=>{
+		console.log(name);
+		return weather.weatherInform(lat, lon);
 	})
-	.then(({currently, hourly})=>{
+	.then(({currently, hourly,daily})=>{
 		res.send({
 			name: req.query.address,
 			temperature: (currently.temperature-32)/1.8,
-			WeatherDuringTheDay: currently.summary,
-			Prediction: hourly.summary
+			WeatherDuringTheDay: hourly.summary,
+			Prediction: daily.summary
 	});
 	})
 	.catch((err)=>{

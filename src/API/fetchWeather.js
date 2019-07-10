@@ -11,13 +11,13 @@ var weatherInform = (lat,long)=>{
 		}else if(body.code === 400){
 			reject("WEATHER NOT FOUND")
 		}else{
+	
 			resolve(body);
 		}
 
 	});
 	})
 }
-
 module.exports = {
 	weatherInform,
 }

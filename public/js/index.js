@@ -15,7 +15,7 @@ const fetchAPI = ()=>{
 				if(data.err){
 					div1.innerHTML = data.err;
 				}else{
-					div1.innerHTML = `<h2>Name: ${data.name}</h2><p>Temperature: ${data.temperature}</p><p>WeatherDuringTheDay: ${data.WeatherDuringTheDay}</p><p>Prediction:${data.Prediction}</p>`;
+					div1.innerHTML = `<h2>Name: ${data.name}</h2><p>Temperature: ${data.temperature.toFixed(2)} &#8451</p><p>WeatherDuringTheDay: ${data.WeatherDuringTheDay}</p><p>Prediction: ${data.Prediction}</p>`;
 				}
 			})
 			.catch((err)=>{
